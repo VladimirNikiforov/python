@@ -42,6 +42,7 @@ author = "Donald Knuth"
 print(f"Преждевременная {subject} - корень всех зол. ({author})")
 
 num = 8
+print(num)
 print(f"Binary: {num:#b}")
 num = 2 / 3
 print(num)
@@ -86,3 +87,9 @@ if income is None:
     print("Haven't started!")
 elif not income:
     print("Nothing saved!")
+else:
+    print("smth")
+
+company = "example.net"
+if "my" in company or company.endswith(".net"):
+    print("Checked!")
