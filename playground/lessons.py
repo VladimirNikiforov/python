@@ -334,12 +334,37 @@ def week_2():
                 'message': 'There is no country for old men'
             }
         }
-        printer(**payload)
+        # printer(**payload)
         # <class 'dict'>
         # user_id: 117
         # feedback: {'subject': 'Registration fields', 'message': 'There is no country for old men'}
 
-    functions()
+    def files():
+        f = open('filename')
+        text_model = ['r', 'w', 'a', 'r+']
+        binary_modes = ['br', 'bw', 'ba', 'br+']
+        f.write('The world is changed.\nI taste it in the water.\n')  # 47
+        f.close()
+        f.open('filename', 'r+')
+        f.read()
+        f.tell()  # 47
+        f.read()  # ..
+        f.seek(0)
+        f.tell()  # 0
+        print(f.read())  # The world......
+        f.close()
+
+        f = open('filename', 'r+')
+        f.readline()  # 'The world is changed.\n'
+        f.close()
+        f = open('filename', 'r+')
+        f.readlines()  # ['The world is changed.\n','I taste it in the water.\n']
+        f.close()
+
+        with open('filename') as f:
+            print(f.read())
+
+    #files()
 
 
 week_2()
