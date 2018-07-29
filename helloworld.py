@@ -11,6 +11,8 @@ print(calendar.isleap(year))
 year += 1000
 print(id(year))
 
+###############################
+
 quote = """Ghjdtyhfdsjhkjlkj@jhgjlkn"""
 print(quote.count("h"))
 
@@ -51,6 +53,8 @@ print(f"{num:.3f}")
 # name = input("Input your name: ")
 # print(f"Hello, {name}!")
 
+###############################
+
 example_bytes = b"hello"
 print(type(example_bytes))
 print(example_bytes)
@@ -75,6 +79,8 @@ print(type(None))
 
 print(bool(answer))
 
+###############################
+
 if not answer:
     print("Ответ не получен!")
 
@@ -93,6 +99,8 @@ else:
 company = "example.net"
 if "my" in company or company.endswith(".net"):
     print("Checked!")
+
+###############################
 
 i = 0
 while i < 100:
@@ -116,8 +124,12 @@ for i in range(1, 10, 2):
 for i in range(10, 5, -1):
     print(i)
 
+###############################
+
 for i in range(100):
     pass
+
+###############################
 
 result = 0
 while True:
@@ -125,3 +137,55 @@ while True:
     if result >= 100:
         break
 print(result)
+
+###############################
+
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+
+###############################
+
+for i in range(10):
+    if i == 5:
+        continue
+    print(i)
+
+###############################
+
+result = 0
+
+for i in range(10):
+    if i % 2 != 0:
+        continue
+    result += i
+
+print(result)
+
+###############################
+
+## GAME
+
+import random
+
+number = random.randint(0, 101)
+
+while True:
+    answer = input("Введите число: ")
+    if not answer or answer == "exit":
+        break
+
+    if not answer.isdigit():
+        print("Введите правильное число!")
+        continue
+
+    user_answer = int(answer)
+
+    if user_answer > number:
+        print("Загаданное число меньше")
+    elif user_answer < number:
+        print("Загаданное число больше")
+    else:
+        print("Совершенно верно!")
+        break
