@@ -1,5 +1,6 @@
-def multiply(a, b):
-    return a * b
+def week_1():
+    def multiply(a, b):
+        return a * b
 
 
 """
@@ -9,231 +10,336 @@ from mypackage.utils import multiply as mlt
 if __name__ == "__main__":
     print(mlt(2, 3))
 """
-# week_2
-# LISTS
 
-empty_list = []
-empty_list = list()
 
-none_list = [None] * 10
+def week_2():
+    def lists():
 
-l_collections = ['list', 'tuple', 'dict', 'set']
+        empty_list = []
+        empty_list = list()
 
-print('list' in l_collections)  # searching element in list need linear time!
+        none_list = [None] * 10
 
-user_data = [
-    ['Elena', 4.4],
-    ['Andrey', 4.2]
-]
+        l_collections = ['list', 'tuple', 'dict', 'set']
 
-len(l_collections)  # constant time!
+        print('list' in l_collections)  # searching element in list need linear time!
 
-print(l_collections)
-print(l_collections[0])
-print(l_collections[-1])
+        user_data = [
+            ['Elena', 4.4],
+            ['Andrey', 4.2]
+        ]
 
-l_collections[3] = 'frozenset'
-print(l_collections)
+        len(l_collections)  # constant time!
 
-range_list = list(range(10))
-print(range_list)
+        print(l_collections)
+        print(l_collections[0])
+        print(l_collections[-1])
 
-print(range_list[1:3])
-print(range_list[3:])
-print(range_list[:5])
-print(range_list[::2])
-print(range_list[::-1])
-print(range_list[5:1:-1])
-print(range_list[:] is range_list)
+        l_collections[3] = 'frozenset'
+        print(l_collections)
 
-l_collections = ['list', 'tuple', 'dict', 'set']
-for collection in l_collections:
-    print('Learning {}...'.format(collection))
+        range_list = list(range(10))
+        print(range_list)
 
-for idx, collection in enumerate(l_collections):
-    print('#{} {}'.format(idx, collection))
+        print(range_list[1:3])
+        print(range_list[3:])
+        print(range_list[:5])
+        print(range_list[::2])
+        print(range_list[::-1])
+        print(range_list[5:1:-1])
+        print(range_list[:] is range_list)
 
-l_collections.append('OrderedDict')
-print(l_collections)
+        l_collections = ['list', 'tuple', 'dict', 'set']
+        for collection in l_collections:
+            print('Learning {}...'.format(collection))
 
-l_collections.extend(['ponyset', 'unicorndict'])
-print(l_collections)
+        for idx, collection in enumerate(l_collections):
+            print('#{} {}'.format(idx, collection))
 
-l_collections += [None]
-print(l_collections)
+        l_collections.append('OrderedDict')
+        print(l_collections)
 
-del l_collections[4]
-print(l_collections)
+        l_collections.extend(['ponyset', 'unicorndict'])
+        print(l_collections)
 
-numbers = [4, 17, 19, 9, 2, 6, 10, 13]
-print(min(numbers))
-print(max(numbers))
-print(sum(numbers))
+        l_collections += [None]
+        print(l_collections)
 
-tag_list = ['python', 'course', 'coursera']
-print(', '.join(tag_list))
+        del l_collections[4]
+        print(l_collections)
 
-####################################
-# sorting
-import random
+        numbers = [4, 17, 19, 9, 2, 6, 10, 13]
+        print(min(numbers))
+        print(max(numbers))
+        print(sum(numbers))
 
-numbers = []
-for _ in range(10):
-    numbers.append(random.randint(1, 20))
+        tag_list = ['python', 'course', 'coursera']
+        print(', '.join(tag_list))
 
-print(numbers)
+    ####################################
+    def sorting():
+        import random
 
-print(sorted(numbers))
-print(numbers)
-numbers.sort()
-print(numbers)
-print(sorted(numbers, reverse=True))
-numbers.sort(reverse=True)
-print(numbers)
-print(reversed(numbers))
-print(list(reversed(numbers)))
+        numbers = []
+        for _ in range(10):
+            numbers.append(random.randint(1, 20))
 
-""" METHODS
-append
-clear
-copy
-count
-extend
-index
-insert
-pop
-remove
-reverse
-sort
-"""
+        print(numbers)
 
-# Tuples - immutable!
+        print(sorted(numbers))
+        print(numbers)
+        numbers.sort()
+        print(numbers)
+        print(sorted(numbers, reverse=True))
+        numbers.sort(reverse=True)
+        print(numbers)
+        print(reversed(numbers))
+        print(list(reversed(numbers)))
 
-empty_tuple = ()
-empty_tuple = tuple()
+        """ METHODS
+        append
+        clear
+        copy
+        count
+        extend
+        index
+        insert
+        pop
+        remove
+        reverse
+        sort
+        """
 
-immutables = (int, str, tuple)
+    def tuples():
+        # Tuples - immutable!
 
-# but objects inside the tuples could be mutable!
-blink = ([], [])
-blink[0].append(0)
-print(blink)
+        empty_tuple = ()
+        empty_tuple = tuple()
 
-print(hash(tuple()))
+        immutables = (int, str, tuple)
 
-one_element_tuple = (1,)
-guess_what = (1)
-print(type(guess_what))
+        # but objects inside the tuples could be mutable!
+        blink = ([], [])
+        blink[0].append(0)
+        print(blink)
 
-# Dictionaries
+        print(hash(tuple()))
 
-empty_dict = {}
-empty_dict = dict()
+        one_element_tuple = (1,)
+        guess_what = (1)
+        print(type(guess_what))
 
-collections_map = {
-    'mutable': ['list', 'set', 'dict'],
-    'immutable': ['tuple', 'frozenset']
-}
+    def dictionaries():
 
-print(collections_map['immutable'])
-print(collections_map.get('irresistible', 'not found'))
+        empty_dict = {}
+        empty_dict = dict()
 
-print('mutable' in collections_map)  # searching key in dict need constant time!
+        collections_map = {
+            'mutable': ['list', 'set', 'dict'],
+            'immutable': ['tuple', 'frozenset']
+        }
 
-beatles_map = {
-    'Paul': 'Bass',
-    'John': 'Guitar',
-    'George': 'Guitar',
-}
+        print(collections_map['immutable'])
+        print(collections_map.get('irresistible', 'not found'))
 
-print(beatles_map)
-beatles_map['Ringo'] = 'Drums'
-print(beatles_map)
+        print('mutable' in collections_map)  # searching key in dict need constant time!
 
-del beatles_map['John']
-print(beatles_map)
+        beatles_map = {
+            'Paul': 'Bass',
+            'John': 'Guitar',
+            'George': 'Guitar',
+        }
 
-beatles_map.update({
-    'John': 'Guitar'
-})
-print(beatles_map)
+        print(beatles_map)
+        beatles_map['Ringo'] = 'Drums'
+        print(beatles_map)
 
-print(beatles_map.pop('Ringo'))
-print(beatles_map)
+        del beatles_map['John']
+        print(beatles_map)
 
-unknown_dict = {}
-print(unknown_dict.setdefault('key', 'default'))
-print(unknown_dict)
-print(unknown_dict.setdefault('key', 'new_default'))
+        beatles_map.update({
+            'John': 'Guitar'
+        })
+        print(beatles_map)
 
-for key in collections_map:
-    print(key)
+        print(beatles_map.pop('Ringo'))
+        print(beatles_map)
 
-for key, value in collections_map.items():
-    print('{} - {}'.format(key, value))
+        unknown_dict = {}
+        print(unknown_dict.setdefault('key', 'default'))
+        print(unknown_dict)
+        print(unknown_dict.setdefault('key', 'new_default'))
 
-for value in collections_map.values():
-    print(value)
+        for key in collections_map:
+            print(key)
 
-from collections import OrderedDict
+        for key, value in collections_map.items():
+            print('{} - {}'.format(key, value))
 
-ordered = OrderedDict()
+        for value in collections_map.values():
+            print(value)
 
-for number in range(10):
-    ordered[number] = str(number)
+        from collections import OrderedDict
 
-for key in ordered:
-    print(key)
+        ordered = OrderedDict()
 
-#######################
-# Sets
+        for number in range(10):
+            ordered[number] = str(number)
 
-empty_set = set()
-number_set = {1, 2, 3, 3, 4, 5}
-print(number_set)
-print(2 in number_set)
+        for key in ordered:
+            print(key)
 
-odd_set = set()
-even_set = set()
-for number in range(10):
-    if number % 2:
-        odd_set.add(number)
-    else:
-        even_set.add(number)
+    #######################
+    def sets():
 
-print(odd_set)
-print(even_set)
+        empty_set = set()
+        number_set = {1, 2, 3, 3, 4, 5}
+        print(number_set)
+        print(2 in number_set)
 
-# Union of sets
-union_set = odd_set | even_set
-union_set = odd_set.union(even_set)
-print(union_set)
+        odd_set = set()
+        even_set = set()
+        for number in range(10):
+            if number % 2:
+                odd_set.add(number)
+            else:
+                even_set.add(number)
 
-# Intersection of sets
-intersection_set = odd_set & even_set
-intersection_set = odd_set.intersection(even_set)
-print(intersection_set)
+        print(odd_set)
+        print(even_set)
 
-# difference between sets
-difference_set = odd_set - even_set
-difference_set = odd_set.difference(even_set)
-print(difference_set)
+        # Union of sets
+        union_set = odd_set | even_set
+        union_set = odd_set.union(even_set)
+        print(union_set)
 
-# symmetric difference between sets
-symmetric_difference_set = odd_set ^ even_set
-symmetric_difference_set = odd_set.symmetric_difference(even_set)
-print(symmetric_difference_set)
+        # Intersection of sets
+        intersection_set = odd_set & even_set
+        intersection_set = odd_set.intersection(even_set)
+        print(intersection_set)
 
-even_set.remove(2)
-print(even_set)
+        # difference between sets
+        difference_set = odd_set - even_set
+        difference_set = odd_set.difference(even_set)
+        print(difference_set)
 
-print(even_set.pop())
-print(even_set)
+        # symmetric difference between sets
+        symmetric_difference_set = odd_set ^ even_set
+        symmetric_difference_set = odd_set.symmetric_difference(even_set)
+        print(symmetric_difference_set)
 
-frozen = frozenset(['A', 'B', 'C'])  # immutable!
-# frozen.add('O') # Error!
+        even_set.remove(2)
+        print(even_set)
 
-# Usefull links
-# https://docs.python.org/3/library/stdtypes.html
-# https://docs.python.org/3/tutorial/datastructures.html
-# https://en.wikipedia.org/wiki/Hash_table
+        print(even_set.pop())
+        print(even_set)
+
+        frozen = frozenset(['A', 'B', 'C'])  # immutable!
+        # frozen.add('O') # Error!
+
+        # Usefull links
+        # https://docs.python.org/3/library/stdtypes.html
+        # https://docs.python.org/3/tutorial/datastructures.html
+        # https://en.wikipedia.org/wiki/Hash_table
+
+    def functions():
+        from datetime import datetime
+
+        def get_seconds():
+            """Return current seconds"""
+            return datetime.now().second
+
+        # print(get_seconds())
+
+        def split_tags(tag_string):
+            tag_list = []
+            for tag in tag_string.split(','):
+                tag_list.append(tag.strip())
+
+            return tag_list
+
+        # print(split_tags('python, coursera, mooc'))
+
+        # Types annotation!
+        def add(x: int, y: int) -> int:
+            return x + y
+
+        # print(add(10, 11))
+        # print(add('still ', 'works'))
+
+        def extender(source_list, extend_list):
+            source_list.extend(extend_list)
+
+        # values = [1, 2, 3]
+        # extender(values, [4, 5, 6])
+        # print(values)
+
+        def replacer(source_tuple, replace_with):
+            source_tuple = replace_with
+
+        # user_info = ('Guido', '31/01')
+        # replacer(user_info, ('Larry', '27/09'))
+        # print(user_info)
+
+        # Named args
+        def say(greeting, name):
+            print('{} {}'.format(greeting, name))
+
+        # say('Hello', 'Kitty')
+        # say(name='Kitty', greeting='Hello')
+
+        # Args by default
+        def greeting(name='it\'s me...'):
+            print('Hello, {}'.format((name)))
+
+        # greeting()
+
+        def append_one(iterable=[]):
+            iterable.append(1)
+            return iterable
+
+        # print(append_one([1]))
+        # print(append_one()) # [1]
+        # print(append_one()) # [1, 1]
+
+        # def function(iterable=None):
+        #    if iterable is None:
+        #        iterable = []
+        # def function(iterable=None):
+        #    iterable = iterable or []
+
+        # STARS
+        def printer(*args):
+            print(type(args))
+
+            for argument in args:
+                print(argument)
+
+        # printer(1, 2, 3, 4, 5)
+        # name_list = ['John', 'Bill', 'Amy']
+        # printer(*name_list)
+
+        def printer(**kwargs):
+            print(type(kwargs))
+
+            for key, value in kwargs.items():
+                print('{}: {}'.format(key, value))
+
+        # printer(a=10, b=11) # a: 10 / b: 11
+
+        payload = {
+            'user_id': 117,
+            'feedback': {
+                'subject': 'Registration fields',
+                'message': 'There is no country for old men'
+            }
+        }
+        printer(**payload)
+        # <class 'dict'>
+        # user_id: 117
+        # feedback: {'subject': 'Registration fields', 'message': 'There is no country for old men'}
+
+    functions()
+
+
+week_2()
