@@ -10,12 +10,16 @@ if __name__ == "__main__":
     print(mlt(2, 3))
 """
 # week_2
+# LISTS
+
 empty_list = []
 empty_list = list()
 
 none_list = [None] * 10
 
 l_collections = ['list', 'tuple', 'dict', 'set']
+
+print('list' in l_collections)  # searching element in list need linear time!
 
 user_data = [
     ['Elena', 4.4],
@@ -134,7 +138,7 @@ collections_map = {
 print(collections_map['immutable'])
 print(collections_map.get('irresistible', 'not found'))
 
-print('mutable' in collections_map)
+print('mutable' in collections_map)  # searching key in dict need constant time!
 
 beatles_map = {
     'Paul': 'Bass',
