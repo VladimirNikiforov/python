@@ -10,6 +10,8 @@
     <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="module" module-name="my-first-repo" />
     <orderEntry type="module" module-name="guessinggame" />
+    <orderEntry type="module" module-name="deeplearning" />
+    <orderEntry type="module" module-name="deeplearning" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
