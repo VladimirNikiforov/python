@@ -228,3 +228,8 @@ print(even_set)
 
 frozen = frozenset(['A', 'B', 'C'])  # immutable!
 # frozen.add('O') # Error!
+
+# Usefull links
+# https://docs.python.org/3/library/stdtypes.html
+# https://docs.python.org/3/tutorial/datastructures.html
+# https://en.wikipedia.org/wiki/Hash_table
