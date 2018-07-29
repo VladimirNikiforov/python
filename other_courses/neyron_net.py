@@ -692,10 +692,8 @@ In[7]:
 import matplotlib.pyplot as plt
 import numpy as np
 import random
-import time
-​
-from numpy.linalg import norm
-​
+    ​
+    ​
 random.seed(42)  # начальное состояние генератора случайных чисел, чтобы можно было воспроизводить результаты.
 ​
 % matplotlib
@@ -1438,10 +1436,7 @@ In[]:
 Обратите внимание, в предыдущей задаче мы работали только с одним примером, а сейчас вам на вход подаётся несколько. Не забудьте учесть этот факт и просуммировать всё, что нужно. И разделить тоже. Подсказка: J=1n∑ni=112∣∣y^(i)−y(i)∣∣2⟹∂J∂θ=1n∑ni=1∂∂θ(12∣∣y^(i)−y(i)∣∣2)J=1n∑i=1n12|y^(i)−y(i)|2⟹∂J∂θ=1n∑i=1n∂∂θ(12|y^(i)−y(i)|2) для любого параметра θθ, который не число примеров.
 """
 
-import numpy as np
-
-
-def get_error(deltas, sums, weights):
+    def get_error(deltas, sums, weights):
     """
     compute error on the previous layer of network
     deltas - ndarray of shape (n, n_{l+1})
