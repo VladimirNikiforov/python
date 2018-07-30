@@ -351,7 +351,7 @@ def week_2():
         f.read()  # ..
         f.seek(0)
         f.tell()  # 0
-        print(f.read())  # The world......
+        print(f.read())  # The world is changed.\n
         f.close()
 
         f = open('filename', 'r+')
@@ -364,7 +364,94 @@ def week_2():
         with open('filename') as f:
             print(f.read())
 
-    #files()
+    def functional_programming():
+        def caller(func, params):
+            return func(*params)
+
+        def printer(name, origin):
+            print('I\'m {} of {}!'.format(name, origin))
+
+        # caller(printer, ['Moana', 'Motunui'])
+
+        def get_multiplier():
+            def inner(a, b):
+                return a * b
+
+            return inner
+
+        # multiplier = get_multiplier()
+        # print(multiplier(10, 11))
+        # print(multiplier.__name__)
+
+        def get_multiplier(number):
+            def inner(a):
+                return a * number
+
+            return inner
+
+        # multiplier_by_2 = get_multiplier(2)
+        # print(multiplier_by_2(10))
+
+        #######################################################
+        # map, filter, lambda
+        def squarify(a):
+            return a ** 2
+
+        # print(list(map(squarify, range(5)))) # [0, 1, 4, 9, 16]
+        # OLD STYLE:
+        squared_list = []
+        for number in range(5):
+            squared_list.append(squarify(number))
+
+        # print(squared_list) # [0, 1, 4, 9, 16]
+
+        def is_positive(a):
+            return a > 0
+
+        # print(list(filter(is_positive, range(-2, 3))))
+        # OLD STYLE:
+        positive_list = []
+        for number in range(-2, 3):
+            if is_positive(number):
+                positive_list.append(number)
+
+        # print(positive_list)
+        # LAMBDA-function
+        # print(list(map(lambda x: x ** 2, range(5))))
+        # print(list(filter(lambda  x: x > 0, range(-2, 3))))
+        def stringify_list(num_list):
+            return list(map(str, [1, 2, 3]))
+
+        # print(stringify_list(range(10)))
+
+        # FUNCTOOLS
+        def multiply(a, b):
+            return a * b
+
+        # print(reduce(multiply, [1, 2, 3, 4, 5]))
+        # print(reduce(lambda x, y: x * y, range(1, 6)))
+        from functools import partial
+        def greeter(person, greeting):
+            return '{}, {}!'.format(greeting, person)
+
+        hier = partial(greeter, greeting='Hi')
+        helloer = partial(greeter, greeting='Hello')
+        # print(hier('brother'))
+        # print(helloer('sir'))
+
+        # Create List
+        # print([number ** 2 for number in range(10)])
+        # print([num for num in range(10) if num % 2 == 0])
+        # Create Dict
+        # print({number: number ** 2 for number in range(5)})
+
+        # print({num % 10 for num in range(100)})
+        num_list = range(7)
+        squared_list = [x ** 2 for x in num_list]
+        # print(list(zip(num_list, squared_list)))
+        # [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36)]
+
+    functional_programming()
 
 
 week_2()
