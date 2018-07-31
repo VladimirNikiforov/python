@@ -1,3 +1,4 @@
+# storage of dictionary key-value in temporary file
 import argparse
 import json
 import os
