@@ -562,7 +562,77 @@ def week_2():
         print(hello())
         # <b><i>hello world</i></b>
 
-    decorators()
+    def generators():
+        def even_range(start, end):
+            current = start
+            while current < end:
+                yield current
+                current += 2
+
+        # for number in even_range(0, 10):
+        #    print(number)
+        ranger = even_range(0, 4)
+
+        # print(next(ranger))
+        # print(next(ranger))
+
+        def list_generator(list_obj):
+            for item in list_obj:
+                yield item
+                print('After yielding {}'.format(item))
+
+        generator = list_generator([1, 2])
+
+        # print(next(generator))
+        # print(next(generator))
+
+        def fibonacci(number):
+            a = b = 1
+            for _ in range(number):
+                yield a
+                a, b = b, a + b
+
+        # for num in fibonacci(10):
+        #    print(num)
+
+        def accumulator():
+            total = 0
+            while True:
+                value = yield total
+                print('Got: {}'.format(value))
+
+                if not value: break
+                total += value
+
+        generator = accumulator()
+        print(next(generator))
+
+        print('Accumulated: {}'.format(generator.send(1)))
+        print('Accumulated: {}'.format(generator.send(5)))
+        print('Accumulated: {}'.format(generator.send(4)))
+
+        # Туториал по функциям из документации
+        # https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+
+        # Работа с файлами
+        # https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+
+        # Встроенные функции
+        # https://docs.python.org/3/library/functions.html
+
+        # Сортировка
+        # https://docs.python.org/3/howto/sorting.html
+
+        # Функциональное программирование
+        # https://docs.python.org/3/howto/functional.html
+
+        # Модуль functools
+        # https://docs.python.org/3/library/functools.html
+
+        # Декораторы
+        # http://python-3-patterns-idioms-test.readthedocs.io/en/latest/PythonDecorators.html
+
+    generators()
 
 
 week_2()
