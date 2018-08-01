@@ -112,7 +112,7 @@ def week_2():
 
     def tuples():
         # Tuples - immutable!
-
+        # неизменяемые, могут содержать эл-ты разных типов, поиск за линейное время
         empty_tuple = ()
         empty_tuple = tuple()
 
@@ -191,7 +191,7 @@ def week_2():
 
     #######################
     def sets():
-
+        # изменяемые, поиск элемента за константное время
         empty_set = set()
         number_set = {1, 2, 3, 3, 4, 5}
         print(number_set)
