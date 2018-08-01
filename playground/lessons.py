@@ -635,4 +635,67 @@ def week_2():
     generators()
 
 
-week_2()
+def week_3():
+    # num = 13
+    # print(isinstance(num, int))
+    class Human:
+        pass
+
+    class Robot:
+        """Instead pass we use some docs"""
+
+    # print(Robot)
+    # print(dir(Robot))
+    class Planet:
+        pass
+
+    planet = Planet()
+    # print(planet)
+    solar_system = []
+    for i in range(8):
+        planet = Planet()
+        solar_system.append(planet)
+    # print(solar_system)
+    solar_system = {}
+    for i in range(8):
+        planet = Planet()
+        solar_system[planet] = True
+
+    # print(solar_system)
+
+    class Planet:
+        def __init__(self, name):
+            self.name = name
+
+        def __str__(self):
+            return self.name
+
+        def __repr__(self):
+            return f"Planet {self.name}"
+
+    earth = Planet("Earth")
+    # print(earth.name) #Earth
+    # print(earth) # with __str__ => Earth
+
+    solar_system = []
+    planet_names = [
+        "Mercury", "Venus", "Earth", "Mars",
+        "Jupyter", "Saturn", "Uranus", "Neptune"
+    ]
+
+    for name in planet_names:
+        planet = Planet(name)
+        solar_system.append(planet)
+    # print(solar_system) # [<__main__.week_3.<locals>.Planet object at 0x034FDA70>, <__main__.week_3.<locals>.Planet object at 0x034FDB90>, <__main__.week_3.<locals>.Planet object at 0x034FDA50>, <__main__.week_3.<locals>.Planet object at 0x034FD9D0>, <__main__.week_3.<locals>.Planet object at 0x034FDAB0>, <__main__.week_3.<locals>.Planet object at 0x034FDC10>, <__main__.week_3.<locals>.Planet object at 0x034FDC30>, <__main__.week_3.<locals>.Planet object at 0x034FDC50>]
+    # with __repr__ => [Planet Mercury, Planet Venus, Planet Earth, Planet Mars, Planet Jupyter, Planet Saturn, Planet Uranus, Planet Neptune]
+
+    mars = Planet("Mars")
+    # print(mars) # Planet Mars
+    # print(mars.name) # 'Mars'
+
+    mars.name = "Second Earth?"
+    # print(mars.name) # 'Second Earth?'
+    # del mars.name => delete attribute!
+
+
+week_3()
