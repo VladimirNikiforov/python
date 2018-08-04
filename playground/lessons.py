@@ -697,5 +697,56 @@ def week_3():
     # print(mars.name) # 'Second Earth?'
     # del mars.name => delete attribute!
 
+    ##### Attributes for class
+    class Planet:
+        """Some description for class Planet"""
+        count = 0
+
+        def __init__(self, name, population=None):
+            self.name = name
+            self.population = population or []
+            Planet.count += 1
+
+    earth = Planet("Earth")
+    mars = Planet("Mars")
+
+    # print(Planet.count) #2
+    # print(mars.count) #2
+
+    # destructors for class
+    class Human:
+
+        def __del__(self):
+            print("Goodbye!")
+
+    # human = Human()
+    # del human # Goodbye!
+    planet = Planet("Earth")
+
+    # print(planet.__dict__) # {'name': 'Earth', 'population': []}
+    # planet.mass = 5.97e24
+    # print(planet.__dict__)  # {'name': 'Earth', 'population': [], 'mass': 5.97e+24}
+    # print(Planet.__dict__) # {'__module__': '__main__', '__doc__': 'Some description for class Planet', 'count': 3, '__init__': <function week_3.<locals>.Planet.__init__ at 0x015FCA50>, '__dict__': <attribute '__dict__' of 'Planet' objects>, '__weakref__': <attribute '__weakref__' of 'Planet' objects>}
+    # print(Planet.__doc__) # Some description for class Planet
+    # print(dir(planet)) # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'count', 'name', 'population']
+    # print(planet.__class__) # <class '__main__.week_3.<locals>.Planet'>
+
+    # constructor class unit
+    class Planet:
+
+        def __new__(cls, *args, **kwargs):
+            print("__new__ called")
+            obj = super().__new__(cls)
+            return obj
+
+        def __init__(self, name):
+            print("__init__ called")
+            self.name = name
+
+    planet = Planet("Earth")
+    # == planet = Planet.__new__(Planet, "Earth")
+    # if isinstance(planet, Planet):
+    #     Planet.__init__(planet, "Earth")
+
 
 week_3()
