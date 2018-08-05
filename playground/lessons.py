@@ -904,8 +904,9 @@ def week_3():
             return self._power
 
     wall_e = Robot(100)
-    print(wall_e.power)
+    # print(wall_e.power)
 
+    # Example for weather forecasting for the city
 
 
 
