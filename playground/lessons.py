@@ -908,7 +908,23 @@ def week_3():
 
     # Example for weather forecasting for the city
 
+    # usefull links
+    # Описание классов в документации Python 3.
+    # https://docs.python.org/3.6/tutorial/classes.html
 
+    # Очень хорошая вводная статья на английском про классы.
+    # http://www.python-course.eu/python3_object_oriented_programming.php
+
+    # Также с того же ресурса статья с примерами про атрибуты,  @classmethod @staticmethod.
+    # http://www.python-course.eu/python3_class_and_instance_attributes.php
+
+    # И там же про @ property.
+    # http://www.python-course.eu/python3_properties.php
+
+    # На русском языке хорошая статья нашлась на Wikipedia.
+    # https://ru.wikipedia.org/wiki/Объектно-ориентированное_программирование_на_Python
+
+    # Обратите внимание, что помимо основ она содержит материалы, которые мы подробно осветим далее в курсе.
 
 
 week_3()
