@@ -944,6 +944,7 @@ def week_3():
     # print(dog.name)
     # print(dog.say())
 
+    # Multiple inherited class
     import json
 
     class ExportJSON:
@@ -957,5 +958,35 @@ def week_3():
         pass
 
     dog = ExDog("Белка", breed="Дворняжка")
-    print(dog.to_json())
+
+    # print(dog.to_json()) # {"name": "\u0411\u0435\u043b\u043a\u0430", "breed": "\u0414\u0432\u043e\u0440\u043d\u044f\u0436\u043a\u0430"}
+
+    # isinstance(dog, Dog) #True
+    # issubclass(Dog, Pet)
+
+    # Method Resolution Order
+    # print(ExDog.__mro__) # (<class '__main__.week_3.<locals>.ExDog'>, <class '__main__.week_3.<locals>.Dog'>, <class '__main__.week_3.<locals>.Pet'>, <class '__main__.week_3.<locals>.ExportJSON'>, <class 'object'>)
+
+    class ExDog(Dog, ExportJSON):
+        def __init__(self, name, breed=None):
+            # вызов медота по MRO
+            super().__init__(name, breed)
+            # super(ExDog, self).__init__(name)
+
+    class WoolenDog(Dog, ExportJSON):
+        def __init__(self, name, breed=None):
+            # явное указание метода конкретного класса
+            super(Dog, self).__init__(name)
+            self.breed = "Шерстяная собака породы {0}".format(breed)
+
+    dog = WoolenDog("Жучка", breed="Такса")
+    # print(dog.breed) # Шерстяная собака породы Такса
+
+
+
+
+
+
+
+
 week_3()
