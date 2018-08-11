@@ -941,7 +941,21 @@ def week_3():
             return "{0}: waw".format(self.name)
 
     dog = Dog("Шарик", "Доберман")
-    print(dog.name)
-    print(dog.say())
+    # print(dog.name)
+    # print(dog.say())
 
+    import json
+
+    class ExportJSON:
+        def to_json(self):
+            return json.dumps({
+                "name": self.name,
+                "breed": self.breed
+            })
+
+    class ExDog(Dog, ExportJSON):
+        pass
+
+    dog = ExDog("Белка", breed="Дворняжка")
+    print(dog.to_json())
 week_3()
