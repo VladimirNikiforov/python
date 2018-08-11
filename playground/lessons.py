@@ -945,7 +945,6 @@ def week_3():
     # print(dog.say())
 
     # Multiple inherited class
-    import json
 
     class ExportJSON:
         def to_json(self):
@@ -1003,6 +1002,10 @@ def week_3():
     # print(dog.__dict__) # {'name': 'Фокс', '_Dog__breed': 'Мопс'}
     # print(dog.get_breed()) # Error: AttributeError: 'ExDog' object has no attribute '_ExDog__breed'
 
+    class ExportJSON:
+        def to_json(self):
+            pass
+
     class ExDog(Dog, ExportJSON):
         def get_breed(self):
             return "порода: {0} - {1}".format(self.name, self._Dog__breed)
@@ -1010,10 +1013,65 @@ def week_3():
     dog = ExDog("Фокс", "Мопс")
     # print(dog.get_breed()) # порода: Фокс - Мопс
 
+    ################################
+    # Class composition
+    class ExportXML:
+        def to_xml(self):
+            pass
 
+    class ExDog(Dog, ExportJSON, ExportXML):
+        pass
 
+    dog = ExDog("Фокс", "мопс")
+    dog.to_xml()
+    dog.to_json()
 
+    #########
+    import json
 
+    class PetExport:
+        def export(self, dog):
+            raise NotImplementedError
+
+    class ExportJSON(PetExport):
+        def export(self, dog):
+            return json.dumps({
+                "name": dog.name,
+                "breed": dog.breed
+            })
+
+    class ExportXML(PetExport):
+        def export(self, dog):
+            return """<?xml version="1.0" encoding="utf-8?>
+            <dog>
+                <name>{0}</name>
+                <breed>{1}</breed>
+            </dog>
+            """.format(dog.name, dog.breed)
+
+    class Pet:
+        def __init__(self, name):
+            self.name = name
+
+    class Dog(Pet):
+        def __init__(self, name, breed=None):
+            super().__init__(name)
+            self.breed = breed
+
+    class ExDog(Dog):
+        def __init__(self, name, breed=None, exporter=None):
+            super().__init__(name, breed=None)
+            self._exporter = exporter or ExportJSON()
+            if not isinstance(self._exporter, PetExport):
+                raise ValueError("bad exporter", exporter)
+
+        def export(self):
+            return self._exporter.export(self)
+
+    dog = ExDog("Шарик", "Дворняга", exporter=ExportXML())
+    # print(dog.export()) # <?xml version="1.0" encoding="utf-8?><dog><name>Шарик</name><breed>None</breed></dog>
+    dog = ExDog("Шарик", "Дворняга")
+    # print(dog.export()) # {"name": "\u0428\u0430\u0440\u0438\u043a", "breed": null}
 
 
 week_3()
