@@ -1073,5 +1073,7 @@ def week_3():
     dog = ExDog("Шарик", "Дворняга")
     # print(dog.export()) # {"name": "\u0428\u0430\u0440\u0438\u043a", "breed": null}
 
+    # Наследование классов в python
+    # https://docs.python.org/3/tutorial/classes.html#inheritance
 
 week_3()
