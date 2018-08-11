@@ -982,6 +982,33 @@ def week_3():
     dog = WoolenDog("Жучка", breed="Такса")
     # print(dog.breed) # Шерстяная собака породы Такса
 
+    # Conflicts of naming, name mangling
+    class Dog(Pet):
+        def __init__(self, name, breed=None):
+            super().__init__(name)
+            self.__breed = breed
+
+        def say(self):
+            return "{0} waw!".format(self.name)
+
+        def get_breed(self):
+            return self.__breed
+
+    class ExDog(Dog, ExportJSON):
+        def get_breed(self):
+            return "порода: {0} - {1}".format(self.name, self.__breed)
+
+    dog = ExDog("Фокс", "Мопс")
+
+    # print(dog.__dict__) # {'name': 'Фокс', '_Dog__breed': 'Мопс'}
+    # print(dog.get_breed()) # Error: AttributeError: 'ExDog' object has no attribute '_ExDog__breed'
+
+    class ExDog(Dog, ExportJSON):
+        def get_breed(self):
+            return "порода: {0} - {1}".format(self.name, self._Dog__breed)
+
+    dog = ExDog("Фокс", "Мопс")
+    # print(dog.get_breed()) # порода: Фокс - Мопс
 
 
 
