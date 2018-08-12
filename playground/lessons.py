@@ -1144,25 +1144,53 @@ def week_3():
 
     ###########
     # Exception handling
-    """
-    try:
-        1 / 0
-    except:
-        print("Ошибка")
-    
-    # bad example of handling every type of exception 
-    try:
-        1 / 0
-    except Exception:
-        print("Ошибка")
-    """
-    # It's better to handling exact type of exception
-    while True:
+    def exception_handling_simple():
         try:
-            raw = input("введите число: ")
-            number = int(raw)
-            break
+            1 / 0
         except:
-            print("некорректное значение")
+            print("Ошибка")
 
+    # bad example of handling every type of exception
+    def exception_handling_bad():
+        try:
+            1 / 0
+        except Exception:
+            print("Ошибка")
+
+    # It's better to handling exact type of exception
+    def exception_handling_exact_type_error():
+        while True:
+            try:
+                raw = input("введите число: ")
+                number = int(raw)
+                break
+            except ValueError:
+                print("некорректное значение")
+
+    # Use Else if try/except
+    def exception_handling_with_else():
+        while True:
+            try:
+                raw = input("введите число: ")
+                number = int(raw)
+                break
+            except ValueError:
+                print("некорректное значение")
+            else:
+                break
+
+    # Handling several exceptions
+    def exception_handling_several_errors():
+        while True:
+            try:
+                raw = input("введите число: ")
+                number = int(raw)
+                break
+            except ValueError:
+                print("некорректное значение")
+            except KeyboardInterrupt:
+                print("выход")
+                break
+
+    exception_handling_several_errors()
 week_3()
