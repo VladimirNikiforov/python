@@ -1240,6 +1240,17 @@ def week_3():
         except OSError as err:
             print(err.errno, err.strerror)
 
-    get_access_to_exception_object()
+    def get_access_to_exception_object_with_args():
+        import os.path
+
+        filename = "/file/not/found"
+        try:
+            if not os.path.exists(filename):
+                raise ValueError("файл не существует", filename)
+        except ValueError as err:
+            message, code = err.args[0], err.args[1]
+            print(message, code)
+
+    get_access_to_exception_object_with_args()
 
 week_3()
