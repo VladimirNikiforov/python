@@ -1076,4 +1076,10 @@ def week_3():
     # Наследование классов в python
     # https://docs.python.org/3/tutorial/classes.html#inheritance
 
+    #######################
+    # Exceptions
+    # Hierarchy of exceptions
+
+
+
 week_3()
