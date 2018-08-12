@@ -1269,6 +1269,15 @@ def week_3():
         except ValueError:
             print("некорректное значение!")
 
-    raise_exception()
+    def raise_exception_extended():
+
+        try:
+            raw = input("введите число: ")
+            if not raw.isdigit():
+                raise ValueError("плохое число", raw)
+        except ValueError as err:
+            print("некорректное значение!", err.args[0], err.args[1])
+
+    raise_exception_extended()
 
 week_3()
