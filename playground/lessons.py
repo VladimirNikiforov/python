@@ -1290,8 +1290,15 @@ def week_3():
             raise TypeError("ошибка") from err
 
     def using_assert():
-        assert 1 == 0, "1 not equal 0"
+        assert 1 == 0, "1 not equal 0"  # AssertionError: 1 not equal 0
 
-    using_assert()
+    # Using flag -O turning OFF all assertion error!
+    def using_assert2(id):
+        assert isinstance(id, int), "id must be int"
+        print("выполняем поиск")
+
+    # using_assert2("foo")
+    # python lessons.py => using_assert2("foo") => AssertionError: id must be int
+    # python -O lessons.py => using_assert2("foo") => выполняем поиск
 
 week_3()
