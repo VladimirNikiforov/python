@@ -1278,6 +1278,17 @@ def week_3():
         except ValueError as err:
             print("некорректное значение!", err.args[0], err.args[1])
 
-    raise_exception_extended()
+    def raise_from_exception():
+
+        try:
+            raw = input("введите число: ")
+            if not raw.isdigit():
+                raise ValueError("плохое число", raw)
+        except ValueError as err:
+            print("ошибка: ", err.args[0], err.args[1])
+
+            raise TypeError("ошибка") from err
+
+    raise_from_exception()
 
 week_3()
