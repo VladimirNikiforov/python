@@ -1301,4 +1301,25 @@ def week_3():
     # python lessons.py => using_assert2("foo") => AssertionError: id must be int
     # python -O lessons.py => using_assert2("foo") => выполняем поиск
 
+    # Performance of exceptions
+    def performance_of_exceptions():
+        # %%timeit
+        my_dict = {"foo": 1}
+        for _ in range(1000):
+            try:
+                my_dict["bar"]
+            except KeyError:
+                pass
+
+    def performance_of_exceptions2():
+        # %%timeit
+        my_dict = {"foo": 1}
+        for _ in range(1000):
+            if "bar" in my_dict:
+                _ = my_dict["bar"]
+
+    # performance_of_exceptions() # 1000 loops, best of 3: 511 mks per loop
+    # performance_of_exceptions2()  # 1000 loops, best of 3: 78 mks per loop
+
+
 week_3()
