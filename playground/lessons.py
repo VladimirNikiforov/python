@@ -1261,6 +1261,14 @@ def week_3():
             trace = traceback.print_exc()
             print(trace)
 
-        get_access_to_exception_stack()
+    def raise_exception():
+        try:
+            raw = input("введите число: ")
+            if not raw.isdigit():
+                raise ValueError
+        except ValueError:
+            print("некорректное значение!")
+
+    raise_exception()
 
 week_3()
