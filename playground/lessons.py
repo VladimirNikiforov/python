@@ -1232,5 +1232,14 @@ def week_3():
         finally:
             f.close()
 
-    exception_handling_with_finally()
+    # Exceptions generating
+    def get_access_to_exception_object():
+        try:
+            with open("/file/not/found") as f:
+                content = f.read()
+        except OSError as err:
+            print(err.errno, err.strerror)
+
+    get_access_to_exception_object()
+
 week_3()
