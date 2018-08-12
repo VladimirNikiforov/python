@@ -1192,5 +1192,16 @@ def week_3():
                 print("выход")
                 break
 
-    exception_handling_several_errors()
+    def exception_handling_several_errors_with_same_code():
+        total_count = 100_000
+        while True:
+            try:
+                raw = input("введите число: ")
+                number = int(raw)
+                total_count = total_count / number
+                break
+            except (ValueError, ZeroDivisionError):
+                print("некорректное значение!")
+
+    exception_handling_several_errors_with_same_code()
 week_3()
