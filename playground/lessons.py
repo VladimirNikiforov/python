@@ -1251,6 +1251,16 @@ def week_3():
             message, code = err.args[0], err.args[1]
             print(message, code)
 
-    get_access_to_exception_object_with_args()
+    def get_access_to_exception_stack():
+        import traceback
+
+        try:
+            with open("/file/not/found") as f:
+                content = f.read()
+        except OSError as err:
+            trace = traceback.print_exc()
+            print(trace)
+
+        get_access_to_exception_stack()
 
 week_3()
