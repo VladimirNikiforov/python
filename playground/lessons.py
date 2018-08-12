@@ -1095,5 +1095,74 @@ def week_3():
     #       +-- TypeError
     #       +-- ValueError
 
+    """
+    class MyClass():
+        pass
+    obj = MyClass()
+    obj.foo
+    Traceback (most recent call last):
+      File "E:\Work\Learning\python\venv\lib\site-packages\IPython\core\interactiveshell.py", line 2963, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "<ipython-input-3-e6020928e2ca>", line 1, in <module>
+        obj.foo
+    AttributeError: 'MyClass' object has no attribute 'foo'
+    
+    d = {"foo": 1}
+    d["bar"]
+    Traceback (most recent call last):
+      File "E:\Work\Learning\python\venv\lib\site-packages\IPython\core\interactiveshell.py", line 2963, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "<ipython-input-5-586c1efcf0c1>", line 1, in <module>
+        d["bar"]
+    KeyError: 'bar'
+    
+    l = [1,2]
+    l[10]
+    Traceback (most recent call last):
+      File "E:\Work\Learning\python\venv\lib\site-packages\IPython\core\interactiveshell.py", line 2963, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "<ipython-input-7-f97e037cfd13>", line 1, in <module>
+        l[10]
+    IndexError: list index out of range
+    
+    int("asdf")
+    Traceback (most recent call last):
+      File "E:\Work\Learning\python\venv\lib\site-packages\IPython\core\interactiveshell.py", line 2963, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "<ipython-input-8-84b8a2bb8310>", line 1, in <module>
+        int("asdf")
+    ValueError: invalid literal for int() with base 10: 'asdf'
+    
+    1 + "1"
+    Traceback (most recent call last):
+      File "E:\Work\Learning\python\venv\lib\site-packages\IPython\core\interactiveshell.py", line 2963, in run_code
+        exec(code_obj, self.user_global_ns, self.user_ns)
+      File "<ipython-input-9-b780703cc5f9>", line 1, in <module>
+        1 + "1"
+    TypeError: unsupported operand type(s) for +: 'int' and 'str'
+    """
+
+    ###########
+    # Exception handling
+    """
+    try:
+        1 / 0
+    except:
+        print("Ошибка")
+    
+    # bad example of handling every type of exception 
+    try:
+        1 / 0
+    except Exception:
+        print("Ошибка")
+    """
+    # It's better to handling exact type of exception
+    while True:
+        try:
+            raw = input("введите число: ")
+            number = int(raw)
+            break
+        except:
+            print("некорректное значение")
 
 week_3()
