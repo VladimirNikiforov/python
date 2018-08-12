@@ -1079,7 +1079,21 @@ def week_3():
     #######################
     # Exceptions
     # Hierarchy of exceptions
-
+    # BaseException
+    #   +-- SystemExit
+    #   +-- KeyboardInterrupt
+    #   +-- GeneratorExit
+    #   +-- Exception
+    #       +-- StopIteration
+    #       +-- AssertionError
+    #       +-- AttributeError
+    #       +-- LookupError
+    #           +-- IndexError
+    #           +-- KeyError
+    #       +-- OSError
+    #       +-- SystemError
+    #       +-- TypeError
+    #       +-- ValueError
 
 
 week_3()
