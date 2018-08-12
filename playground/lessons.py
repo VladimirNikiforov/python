@@ -1289,6 +1289,9 @@ def week_3():
 
             raise TypeError("ошибка") from err
 
-    raise_from_exception()
+    def using_assert():
+        assert 1 == 0, "1 not equal 0"
+
+    using_assert()
 
 week_3()
