@@ -1220,5 +1220,17 @@ def week_3():
         except LookupError:
             print("Объект не найден")
 
-    exception_handling_hierarchy()
+    def exception_handling_with_finally():
+        f = open("/etc/hosts")
+        try:
+            for line in f:
+                print(line.rstrip("\n"))
+                1 / 0
+
+        except OSError:
+            print("ошибка")
+        finally:
+            f.close()
+
+    exception_handling_with_finally()
 week_3()
