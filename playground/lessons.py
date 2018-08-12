@@ -1203,5 +1203,22 @@ def week_3():
             except (ValueError, ZeroDivisionError):
                 print("некорректное значение!")
 
-    exception_handling_several_errors_with_same_code()
+    # Inherited exceptions
+    def exception_handling_hierarchy():
+        database = {
+            "red": ["fox", "flower"],
+            "green": ["peace", "M", "python"]
+        }
+
+        try:
+            color = input("введите цвет: ")
+            number = input("введите номер по порядку: ")
+
+            label = database[color][int(number)]
+            print("вы выбрали: ", label)
+        # except (IndexError, KeyError):
+        except LookupError:
+            print("Объект не найден")
+
+    exception_handling_hierarchy()
 week_3()
