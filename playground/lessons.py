@@ -1348,5 +1348,11 @@ def week_3():
     # requests_exceptions('https://notfound-github.com')  # ошибка скачивания url:  https://notfound-github.com
     # requests_exceptions('http://github.com/not_found')  # ошибка url: http://github.com/not_found, code: 404
 
+    # Обработка ошибок, исключения в python
+    # https://docs.python.org/3.6/tutorial/errors
+
+    # Built-in exceptions
+    # https://docs.python.org/3/library/exceptions.html
+
 
 week_3()
