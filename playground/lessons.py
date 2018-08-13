@@ -1321,5 +1321,32 @@ def week_3():
     # performance_of_exceptions() # 1000 loops, best of 3: 511 mks per loop
     # performance_of_exceptions2()  # 1000 loops, best of 3: 78 mks per loop
 
+    ###########################
+    # Exceptions in requests
+    # import requests
+    # print(requests.__file__)
+    # venv\lib\site-packages\requests\__init__.py => venv\lib\site-packages\requests\exceptions.py
+    # HTTPError, SSLError,...
+
+    def requests_exceptions(url):
+        import requests
+
+        try:
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+        except requests.Timeout:
+            print('ошибка timeout, url', url)
+        except requests.HTTPError as err:
+            code = err.response.status_code
+            print(f'ошибка url: {url}, code: {code}')
+        except requests.RequestException:
+            print('ошибка скачивания url: ', url)
+        else:
+            print(response.content)
+
+    # requests_exceptions('https://github.com') # OK
+    # requests_exceptions('https://notfound-github.com')  # ошибка скачивания url:  https://notfound-github.com
+    # requests_exceptions('http://github.com/not_found')  # ошибка url: http://github.com/not_found, code: 404
+
 
 week_3()
