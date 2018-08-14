@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="guessinggame" />
     <orderEntry type="module" module-name="deeplearning" />
     <orderEntry type="module" module-name="deeplearning" />
+    <orderEntry type="module" module-name="tasks_and_solutions" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
