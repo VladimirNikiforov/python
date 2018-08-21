@@ -1355,4 +1355,23 @@ def week_3():
     # https://docs.python.org/3/library/exceptions.html
 
 
-week_3()
+def week_4():
+    def magic_methods():
+        class User:
+            def __init__(self, name, email):
+                self.name = name
+                self.email = email
+
+            def get_email_data(self):
+                return {
+                    'name': self.name,
+                    'email': self.email
+                }
+
+        jane = User('Jane Doe', 'janedoe@example.com')
+        print(jane.get_email_data())
+
+    magic_methods()
+
+
+week_4()
