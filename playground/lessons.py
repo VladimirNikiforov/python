@@ -1410,7 +1410,25 @@ def week_4():
 
         jane = User('Jane Doe', 'jdoe@example.com')
         joe = User('Joe Doe', 'jdoe@example.com')
-        print(jane == joe)
+
+        # print(jane == joe) # __eq__ => True!
+
+        # __getattr__, __getattribute__
+        # __setattr__, __delattr__
+
+        class Researcher:
+            def __getattr__(self, name):
+                return 'Nothing found :('
+
+            def __getattribute__(self, name):
+                return 'nope'
+
+        obj = Researcher()
+
+        # print(obj.attr) # nope
+        # print(obj.method) # nope
+        # print(obj.DDSDFSDFSDF) # nope
+
 
     magic_methods()
 
