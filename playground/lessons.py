@@ -1369,7 +1369,21 @@ def week_4():
                 }
 
         jane = User('Jane Doe', 'janedoe@example.com')
-        print(jane.get_email_data())
+
+        # print(jane.get_email_data())
+
+        class Singleton:
+            instance = None
+
+            def __new__(cls):
+                if cls.instance is None:
+                    cls.instance = super().__new__(cls)
+                return cls.instance
+
+        a = Singleton()
+        b = Singleton()
+
+        print(a is b)
 
     magic_methods()
 
