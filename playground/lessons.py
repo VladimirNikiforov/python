@@ -1394,7 +1394,23 @@ def week_4():
                 return f'{self.name} <{self.email}>'
 
         jane = User('Jane Doe', 'janedoe@example.com')
-        print(jane)
+
+        # print(jane)
+
+        class User:
+            def __init__(self, name, email):
+                self.name = name
+                self.email = email
+
+            def __hash__(self):
+                return hash(self.email)
+
+            def __eq__(self, obj):
+                return self.email == obj.email
+
+        jane = User('Jane Doe', 'jdoe@example.com')
+        joe = User('Joe Doe', 'jdoe@example.com')
+        print(jane == joe)
 
     magic_methods()
 
