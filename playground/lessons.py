@@ -1429,6 +1429,20 @@ def week_4():
         # print(obj.method) # nope
         # print(obj.DDSDFSDFSDF) # nope
 
+        # __setattr__ => create event on setting attr
+
+        class Polite:
+            def __delattr__(self, name):
+                value = getattr(self, name)
+                print(f'Goodbye {name}, you were {value}!')
+
+                object.__delattr__(self, name)
+
+        obj = Polite()
+        obj.attr = 10
+        # del obj.attr # => Goodbye attr, you were 10!
+
+
 
     magic_methods()
 
