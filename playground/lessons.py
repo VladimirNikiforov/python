@@ -1383,7 +1383,18 @@ def week_4():
         a = Singleton()
         b = Singleton()
 
-        print(a is b)
+        # print(a is b)
+
+        class User:
+            def __init__(self, name, email):
+                self.name = name
+                self.email = email
+
+            def __str__(self):
+                return f'{self.name} <{self.email}>'
+
+        jane = User('Jane Doe', 'janedoe@example.com')
+        print(jane)
 
     magic_methods()
 
