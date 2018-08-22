@@ -1455,16 +1455,62 @@ def week_4():
 
                 return wrapped
 
-        logger = Logger('log.txt')
+        # logger = Logger('log.txt')
 
-        @logger
-        def completely_useless_function():
-            pass
+        # @logger
+        # def completely_useless_function():
+        #     pass
 
-        completely_useless_function()
+        # completely_useless_function()
 
-        with open('log.txt') as f:
-            print(f.read())
+        # with open('log.txt') as f:
+        #    print(f.read())
+
+        # Магический метод call используется при вызове экземпляра класса,
+        # а не самого класса.
+        # Однако, если класс с переопределённым методом call является метаклассом
+        # (о них мы поговорим чуть позже), то экземпляром этого класса является
+        # новый класс. А это значит, что при создании объекта класса,
+        # метаклассом которого является класс с переопределённым магическим
+        # методом call, вызывается этот самый метод call.
+        # Причем вызывается он раньше new и init.
+
+        import random
+
+        class NoisyInt:
+            def __init__(self, value):
+                self.value = value
+
+            def __add__(self, obj):
+                noise = random.uniform(-1, 1)
+                return self.value + obj.value + noise
+
+        # a = NoisyInt(10)
+        # b = NoisyInt(20)
+
+        # for _ in range(3):
+        #    print(a + b)
+
+        # 29.930463632745052
+        # 30.96830897108625
+        # 29.63950941993512
+
+        class ItemList:
+            def __init__(self, original_list=None):
+                self.container = original_list or []
+
+            def __getitem__(self, index):
+                return self.container[index - 1]
+
+            def __setitem__(self, key, value):
+                self.container[index - 1] = value
+
+            def __str__(self):
+                return self.container.__str__()
+
+        # numbers = ItemList([1,2,3])
+
+        # print(numbers[2]) # 2
 
     magic_methods()
 
