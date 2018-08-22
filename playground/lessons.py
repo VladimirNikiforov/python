@@ -1447,9 +1447,13 @@ def week_4():
                 self.filename = filename
 
             def __call__(self, func):
-                with open(self.filename, 'w') as f:
-                    f.write('Oh Danny boy...')
-                return func
+                def wrapped(*args, **kwargs):
+                    with open(self.filename, 'a') as f:
+                        f.write('Oh Danny boy...')
+
+                    return func(*args, *kwargs)
+
+                return wrapped
 
         logger = Logger('log.txt')
 
