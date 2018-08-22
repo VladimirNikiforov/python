@@ -1442,7 +1442,25 @@ def week_4():
         obj.attr = 10
         # del obj.attr # => Goodbye attr, you were 10!
 
+        class Logger:
+            def __init__(self, filename):
+                self.filename = filename
 
+            def __call__(self, func):
+                with open(self.filename, 'w') as f:
+                    f.write('Oh Danny boy...')
+                return func
+
+        logger = Logger('log.txt')
+
+        @logger
+        def completely_useless_function():
+            pass
+
+        completely_useless_function()
+
+        with open('log.txt') as f:
+            print(f.read())
 
     magic_methods()
 
