@@ -1511,6 +1511,9 @@ def week_4():
         # numbers = ItemList([1,2,3])
         # print(numbers[2]) # 3
 
+        # numbers[3] = 4
+        # print(numbers) # [1,2,3,4]
+
     magic_methods()
 
 
