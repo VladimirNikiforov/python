@@ -1500,17 +1500,16 @@ def week_4():
                 self.container = original_list or []
 
             def __getitem__(self, index):
-                return self.container[index - 1]
+                return self.container[index]
 
             def __setitem__(self, key, value):
-                self.container[index - 1] = value
+                self.container[index] = value
 
             def __str__(self):
                 return self.container.__str__()
 
         # numbers = ItemList([1,2,3])
-
-        # print(numbers[2]) # 2
+        # print(numbers[2]) # 3
 
     magic_methods()
 
