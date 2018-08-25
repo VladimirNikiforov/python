@@ -1553,6 +1553,26 @@ def week_4():
         for letter in IndexIterable('str'):
             print(letter)
 
-    getIndexIterable()
+    # getIndexIterable()
 
+    def context_managers():
+        # with open(filename, 'a') as f:
+        #     f.write('New line')
+        class open_file:
+            def __init__(self, filename, mode):
+                self.f = open(filename, mode)
+
+            def __enter__(self):
+                return self.f
+
+            def __exit__(self, *args):
+                self.f.close()
+
+        with open_file('test.log', 'w') as f:
+            f.write('Inside `open_file` context manager')
+
+        with open_file('test.log', 'r') as f:
+            print(f.readlines())
+
+    context_managers()
 week_4()
