@@ -1586,12 +1586,32 @@ def week_4():
                     print('Nothing happend')
                     return True
 
-        with supress_exception(ZeroDivisionError):
-            really_big_number = 1 / 0  # Nothing happend
+        # with supress_exception(ZeroDivisionError):
+        #     really_big_number = 1 / 0  # Nothing happend
 
         # import contextlib
         # with contextlib.supress(ValueError):
         #     raise ValueError
+
+        import time
+
+        class timer():
+            def __init__(self):
+                self.start = time.time()
+
+            def current_time(self):
+                return time.time() - self.start
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                print(f'Elapsed: {self.current_time()}')
+
+        with timer() as t:
+            time.sleep(1)
+            print(f'Current: {t.current_time()}')
+            time.sleep(1)
 
 
     context_managers()
