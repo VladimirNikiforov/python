@@ -1587,7 +1587,11 @@ def week_4():
                     return True
 
         with supress_exception(ZeroDivisionError):
-            really_big_number = 1 / 0
+            really_big_number = 1 / 0  # Nothing happend
+
+        # import contextlib
+        # with contextlib.supress(ValueError):
+        #     raise ValueError
 
 
     context_managers()
