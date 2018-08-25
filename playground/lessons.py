@@ -1514,7 +1514,32 @@ def week_4():
         # numbers[3] = 4
         # print(numbers) # [1,2,3,4]
 
-    magic_methods()
+    # magic_methods()
 
+    def iterators():
+        iterator = iter([1, 2, 3])
+        print(next(iterator))
+
+    def getSquareIterator():
+        class SquareIterator:
+            def __init__(self, start, end):
+                self.current = start
+                self.end = end
+
+            def __iter__(self):
+                return self
+
+            def __next__(self):
+                if self.current >= self.end:
+                    raise StopIteration
+
+                result = self.current ** 2
+                self.current += 1
+                return result
+
+        for num in SquareIterator(1, 4):
+            print(num)
+
+    getSquareIterator()
 
 week_4()
