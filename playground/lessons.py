@@ -1658,5 +1658,32 @@ def week_4():
 
         # print(instance.attr) # 100
 
+        class ImportantValue:
+            def __init__(self, amount):
+                self.amount = amount
+
+            def __get__(self, instance, owner):
+                return self.amount
+
+            def __set__(self, instance, value):
+                with open('log.txt', 'a') as f:
+                    f.write(str(value))
+
+                self.amount = value
+
+        class Account:
+            amount = ImportantValue(100)
+
+        # bobs_account = Account()
+        # bobs_account.amount = 150
+
+        # with open('log.txt', 'r') as f:
+        #     print(f.read())
+
+        # В bound метод по умолчанию передаётся объект, с которым вызван метод.
+        # И именно он и записывается в атрибут self метода класса.
+
+
+
     descriptors()
 week_4()
