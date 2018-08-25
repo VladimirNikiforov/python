@@ -1568,11 +1568,27 @@ def week_4():
             def __exit__(self, *args):
                 self.f.close()
 
-        with open_file('test.log', 'w') as f:
-            f.write('Inside `open_file` context manager')
+        # with open_file('test.log', 'w') as f:
+        #     f.write('Inside `open_file` context manager')
 
-        with open_file('test.log', 'r') as f:
-            print(f.readlines())
+        # with open_file('test.log', 'r') as f:
+        #     print(f.readlines())
+
+        class supress_exception:
+            def __init__(self, exc_type):
+                self.exc_type = exc_type
+
+            def __enter__(self):
+                return
+
+            def __exit__(self, exc_type, exc_value, traceback):
+                if exc_type == self.exc_type:
+                    print('Nothing happend')
+                    return True
+
+        with supress_exception(ZeroDivisionError):
+            really_big_number = 1 / 0
+
 
     context_managers()
 week_4()
