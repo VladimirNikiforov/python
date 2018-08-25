@@ -1613,6 +1613,9 @@ def week_4():
             print(f'Current: {t.current_time()}')
             time.sleep(1)
 
+    # magic methods docs:
+    # https://docs.python.org/3/reference/datamodel.html
+    # context_managers()
 
-    context_managers()
+
 week_4()
