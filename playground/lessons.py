@@ -1540,6 +1540,19 @@ def week_4():
         for num in SquareIterator(1, 4):
             print(num)
 
-    getSquareIterator()
+    # getSquareIterator()
+
+    def getIndexIterable():
+        class IndexIterable:
+            def __init__(self, obj):
+                self.obj = obj
+
+            def __getitem__(self, index):
+                return self.obj[index]
+
+        for letter in IndexIterable('str'):
+            print(letter)
+
+    getIndexIterable()
 
 week_4()
