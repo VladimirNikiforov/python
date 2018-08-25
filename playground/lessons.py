@@ -1617,5 +1617,46 @@ def week_4():
     # https://docs.python.org/3/reference/datamodel.html
     # context_managers()
 
+    def descriptors():
+        class Descriptor:
+            def __get__(self, obj, obj_type):
+                print('get')
 
+            def __set__(self, obj, value):
+                print('set')
+
+            def __delete__(self, obj):
+                print('delete')
+
+        class Class:
+            attr = Descriptor()
+
+        # instance = Class()
+        # instance.attr # get
+        # instance.attr = 10 # set
+        # del instance.attr # delete
+
+        class Value:
+            def __init__(self):
+                self.value = None
+
+            @staticmethod
+            def _prepare_value(value):
+                return value * 10
+
+            def __get__(self, instance, owner):
+                return self.value
+
+            def __set__(self, instance, value):
+                self.value = self._prepare_value(value)
+
+        class Class:
+            attr = Value()
+
+        # instance = Class()
+        # instance.attr = 10
+
+        # print(instance.attr) # 100
+
+    descriptors()
 week_4()
