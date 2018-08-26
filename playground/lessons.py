@@ -1781,6 +1781,13 @@ def week_4():
         # print(Base.registry) #{'a': <class '__main__.week_4.<locals>.metaclasses.<locals>.A'>, 'b': <class '__main__.week_4.<locals>.metaclasses.<locals>.B'>}
         # print(Base.__subclasses__()) #[<class '__main__.week_4.<locals>.metaclasses.<locals>.A'>, <class '__main__.week_4.<locals>.metaclasses.<locals>.B'>]
 
+        from abc import ABCMeta, abstractmethod
+
+        class Sender(metaclass=ABCMeta):
+            @abstractmethod
+            def send(self):
+                """DO smnth"""
+
 
     metaclasses()
 week_4()
