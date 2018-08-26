@@ -1763,6 +1763,24 @@ def week_4():
 
         # print(f'A.class_id: "{A.class_id}"') # A.class_id: "a"
 
+        class Meta(type):
+            def __init__(cls, name, bases, attrs):
+                print(f'Initializing - {name}')
+
+                if not hasattr(cls, 'registry'):
+                    cls.registry = {}
+                else:
+                    cls.registry[name.lower()] = cls
+
+                super().__init__(name, bases, attrs)
+
+        # class Base(metaclass=Meta): pass #Initializing - Base
+        # class A(Base): pass #Initializing - A
+        # class B(Base): pass #Initializing - B
+
+        # print(Base.registry) #{'a': <class '__main__.week_4.<locals>.metaclasses.<locals>.A'>, 'b': <class '__main__.week_4.<locals>.metaclasses.<locals>.B'>}
+        # print(Base.__subclasses__()) #[<class '__main__.week_4.<locals>.metaclasses.<locals>.A'>, <class '__main__.week_4.<locals>.metaclasses.<locals>.B'>]
+
 
     metaclasses()
 week_4()
