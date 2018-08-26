@@ -20,7 +20,6 @@ class Asteroid:
     def diameter(self):
         return int(self.get_data()['estimated_diameter']['meters']['estimated_diameter_max'])
 
-
 apophis = Asteroid(2099942)
 
 print(f'Name: {apophis.name}')
