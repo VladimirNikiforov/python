@@ -1804,6 +1804,13 @@ def week_4():
             def send(self):
                 raise NotImplementedError
 
+        # Docs
+        # Data model
+        # https://docs.python.org/3/reference/datamodel.html
 
-    metaclasses()
+        # Descriptors
+        # https://docs.python.org/3/howto/descriptor.html
+    # metaclasses()
+
+
 week_4()
