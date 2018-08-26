@@ -1788,6 +1788,22 @@ def week_4():
             def send(self):
                 """DO smnth"""
 
+        class Child(Sender):
+            pass
+
+        # Child() #need to reinitialize method send! => TypeError: Can't instantiate abstract class Child with abstract methods send
+
+        class Child(Sender):
+            def send(self):
+                print('Sending')
+
+        # Child() # ok!
+
+        # instead of abstract method better to use raise in non-implemented method! =)
+        class PythonWay:
+            def send(self):
+                raise NotImplementedError
+
 
     metaclasses()
 week_4()
