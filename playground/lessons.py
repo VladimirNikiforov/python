@@ -1742,6 +1742,8 @@ def week_4():
         # obj = Class()
         # obj.luke = 'the chosen too' # => AttributeError!
 
+        # descriptors docs
+        # http://www.blog.pythonlibrary.org/2016/06/10/python-201-what-are-descriptors/
     # descriptors()
 
     def metaclasses():
