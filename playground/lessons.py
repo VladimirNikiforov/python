@@ -1742,5 +1742,12 @@ def week_4():
         # obj = Class()
         # obj.luke = 'the chosen too' # => AttributeError!
 
-    descriptors()
+    # descriptors()
+
+    def metaclasses():
+        NewClass = type('NewClass', (), {})
+        # print(NewClass) #<class '__main__.NewClass'>
+        # print(NewClass()) #<__main__.NewClass object at 0x012A8330>
+
+    metaclasses()
 week_4()
