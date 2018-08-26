@@ -1875,6 +1875,84 @@ def week_4():
             
             FAILED (failures=1)
         """
+        """
+        import json
 
-    tests()
+        import requests
+
+        class Asteroid:
+            BASE_API_URL = 'https://api.nasa.gov/neo/rest/v1/neo/{}?api_key=DEMO_KEY'
+
+            def __init__(self, spk_id):
+                self.api_url = self.BASE_API_URL.format(spk_id)
+
+            def get_data(self):
+                return requests.get(self.api_url).json()
+
+            @property
+            def name(self):
+                return self.get_data()['name']
+
+            @property
+            def diameter(self):
+                return int(self.get_data()['estimated_diameter']['meters']['estimated_diameter_max'])
+
+        apophis = Asteroid(2099942)
+
+        print(f'Name: {apophis.name}')
+        print(f'Diameter: {apophis.diameter}m')
+
+        # for using without reading online every-time
+        with open('apophis_fixture.txt', 'w') as f:
+            f.write(json.dumps(apophis.get_data()))
+
+        import json
+        import unittest
+        from unittest.mock import patch
+
+        from asteroid import Asteroid
+
+        class TestAsteroid(unittest.TestCase):
+            def setUp(self):
+                self.asteroid = Asteroid(2099942)
+
+            def mocked_get_data(self):
+                with open('apophis_fixture.txt') as f:
+                    return json.loads(f.read())
+
+            @patch('asteroid.Asteroid.get_data', mocked_get_data)
+            def test_name(self):
+                self.assertEqual(self.asteroid.name, '99942 Apophis (2004 MN4)')
+
+            @patch('asteroid.Asteroid.get_data', mocked_get_data)
+            def test_diameter(self):
+                self.assertEqual(self.asteroid.diameter, 682)
+        """
+        """(venv) >python -m unittest test_asteroid.py
+        Name: 99942 Apophis (2004 MN4)
+        Diameter: 682m
+        ..
+        ----------------------------------------------------------------------
+        Ran 2 tests in 0.002s
+
+        OK
+        """
+
+        """Документация
+        pdb
+        https://docs.python.org/3/library/pdb.html
+        unittest
+        https://docs.python.org/3/library/unittest.html
+        unittest.mock
+        https://docs.python.org/3/library/unittest.mock.html
+        unittest.mock examples
+        https://docs.python.org/3/library/unittest.mock-examples.html
+        """
+
+    # tests()
+
+    pass
+
+
+
 week_4()
