@@ -1749,5 +1749,20 @@ def week_4():
         # print(NewClass) #<class '__main__.NewClass'>
         # print(NewClass()) #<__main__.NewClass object at 0x012A8330>
 
+        class Meta(type):
+            def __new__(cls, name, parents, attrs):
+                print(f'Creating {name}')
+
+                if 'class_id' not in attrs:
+                    attrs['class_id'] = name.lower()
+
+                return super().__new__(cls, name, parents, attrs)
+
+        # class A(metaclass=Meta): #Creating A
+        #    pass
+
+        # print(f'A.class_id: "{A.class_id}"') # A.class_id: "a"
+
+
     metaclasses()
 week_4()
