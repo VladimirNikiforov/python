@@ -1985,8 +1985,23 @@ def week5():
             os.wait()
         # ps uax | grep lessons.py
         # ps axf | grep lessons.py => to see in tree
+        # strace -p 16113
 
-    create_subprocess()
+    # create_subprocess()
+
+    def memory_of_subprocess():
+        import os
+
+        foo = "bar"
+
+        if os.fork() == 0:
+            foo = "baz"
+            print("child:", foo)
+        else:
+            print("parent:", foo)
+            os.wait()
+
+    # memory_of_subprocess()
 
 
 week5()
