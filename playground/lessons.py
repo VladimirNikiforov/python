@@ -1852,7 +1852,7 @@ def week_4():
                 self.assertIsNone({}.get('key'))
 
             def test_trueness(self):
-                self.assertTrue(book(10))
+                self.assertTrue(bool(10))
 
             def test_integer_division(self):
                 self.assertIs(10 / 5, 2)
@@ -1949,10 +1949,42 @@ def week_4():
         https://docs.python.org/3/library/unittest.mock-examples.html
         """
 
-    # tests()
-
-    pass
+    tests()
 
 
+# week_4()
+def week5():
+    def simple_process():
+        import time
+        import os
 
-week_4()
+        pid = os.getpid()
+
+        while True:
+            print(pid, time.time())
+            time.sleep(2)
+
+        # top
+        # ps axu | grep ex1.py
+        # ps aux | head -1; ps axu | grep ex1.py
+        # sudo strace -p 16112
+        # lsof -p 16112
+        # 0u, 1w, 2u
+
+    # simple_process()
+
+    def create_subprocess():
+        import os
+
+        pid = os.fork()
+        if pid == 0:
+            while True:
+                print("child:", os.getpid())
+        else:
+            print("parent:", os.getpid())
+            os.wait()
+
+    create_subprocess()
+
+
+week5()
