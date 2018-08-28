@@ -2047,8 +2047,8 @@ def week5():
                 print("hello", self.name)
 
         p = PrintProcess("Mike")
-        p.start()
-        p.join()
+        p.start()  # запуск процесса
+        p.join()  # завершение дочерних процессов
 
     use_hierarachy_multiprocessing()
 
