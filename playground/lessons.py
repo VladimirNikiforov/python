@@ -2021,6 +2021,18 @@ def week5():
             foo = f.readline()
             print("parent:", foo)
 
-    files_of_subprocess()
+    # files_of_subprocess()
+
+    def use_multiprocessing():
+        from multiprocessing import Process
+
+        def f(name):
+            print("hello", name)
+
+        p = Process(target=f, args=("Bob",))
+        p.start()
+        p.join()
+
+    use_multiprocessing()
 
 week5()
