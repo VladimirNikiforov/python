@@ -2033,6 +2033,24 @@ def week5():
         p.start()
         p.join()
 
-    use_multiprocessing()
+    # use_multiprocessing()
+
+    def use_hierarachy_multiprocessing():
+        from multiprocessing import Process
+
+        class PrintProcess(Process):
+            def __init__(self, name):
+                super().__init__()
+                self.name = name
+
+            def run(self):
+                print("hello", self.name)
+
+        p = PrintProcess("Mike")
+        p.start()
+        p.join()
+
+    use_hierarachy_multiprocessing()
+
 
 week5()
