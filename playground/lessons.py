@@ -1983,6 +1983,8 @@ def week5():
         else:
             print("parent:", os.getpid())
             os.wait()
+        # ps uax | grep lessons.py
+        # ps axf | grep lessons.py => to see in tree
 
     create_subprocess()
 
