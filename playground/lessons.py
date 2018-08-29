@@ -2062,6 +2062,23 @@ def week5():
         th.start()
         th.join()
 
-    simple_thread()
+    # simple_thread()
+
+    def simple_thread2():
+        from threading import Thread
+
+        class PrintThread(Thread):
+            def __init__(self, name):
+                super().__init__()
+                self.name = name
+
+            def run(self):
+                print("hello", self.name)
+
+        th = PrintThread("Mike")
+        th.start()
+        th.join()
+
+    simple_thread2()
 
 week5()
