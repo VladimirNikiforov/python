@@ -2050,7 +2050,18 @@ def week5():
         p.start()  # запуск процесса
         p.join()  # завершение дочерних процессов
 
-    use_hierarachy_multiprocessing()
+    # use_hierarachy_multiprocessing()
 
+    def simple_thread():
+        from threading import Thread
+
+        def f(name):
+            print("hello", name)
+
+        th = Thread(target=f, args=("Bob",))
+        th.start()
+        th.join()
+
+    simple_thread()
 
 week5()
