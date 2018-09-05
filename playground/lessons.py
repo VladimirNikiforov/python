@@ -2215,6 +2215,14 @@ def week5():
         th2.join()
         print(time.time() - t0)
 
-    cpu_bound_program()
+    # cpu_bound_program()
+
+    # Документация
+    # python multiprocessing
+    # https://docs.python.org/3.6/library/multiprocessing.html
+    # threading
+    # https://docs.python.org/3.6/library/threading.html
+    # concurrent.futures
+    # https://docs.python.org/3/library/concurrent.futures.html
 
 week5()
