@@ -2225,7 +2225,8 @@ def week5():
     # concurrent.futures
     # https://docs.python.org/3/library/concurrent.futures.html
 
-    def my_socket():
+    def server_socket():
+        # server side
         import socket
 
         # http://docs.python.org/3/library/socket.html
@@ -2244,6 +2245,21 @@ def week5():
         conn.close()
         sock.close()
 
-    my_socket()
+    # server_socket()
+
+    def client_side_socket():
+        import socket
+
+        sock = socket.socket()
+        sock.connect(("127.0.0.1", 10001))
+        sock.sendall("ping".encode("utf8"))
+        sock.close()
+
+        # or simple
+        sock = socket.create_connection(("127.0.0.1", 10001))
+        sock.sendall("ping".encode("utf8"))
+        sock.close()
+
+    client_side_socket()
 
 week5()
