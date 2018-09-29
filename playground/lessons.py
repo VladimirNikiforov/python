@@ -2398,7 +2398,8 @@ def week5():
             for w in workers_list:
                 w.join()
 
-
+    # Сокеты в Python
+    # https://docs.python.org/3.6/library/socket.html
 
     # several_requests_by_processes_and_threads_server()
 
