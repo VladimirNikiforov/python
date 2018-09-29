@@ -2287,7 +2287,7 @@ def week5():
 
     # socket_with_context_manager()
 
-    def socket_with_timeout():
+    def socket_with_timeout_server():
         import socket
 
         with socket.socket() as sock:
@@ -2308,6 +2308,19 @@ def week5():
                             break
                         print(data.decode("utf8"))
 
-    socket_with_timeout()
+    # socket_with_timeout_server()
 
+    def socket_with_timeout_client():
+        import socket
+
+        with socket.create_connection(("127.0.0.1", 10001), 5) as sock:
+            sock.settimeout(2)
+            try:
+                sock.sendall("ping".encode("utf8"))
+            except socket.timeout:
+                print("send data timeout")
+            except socket.error as ex:
+                print("send data error:", ex)
+
+    socket_with_timeout_client()
 week5()
