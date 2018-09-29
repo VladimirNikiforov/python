@@ -2381,6 +2381,25 @@ def week5():
 
             for w in workers_list:
                 w.join()
+
+        def process_request(conn, addr):
+            print("connected client:", addr)
+            with conn:
+                while True:
+                    data = conn.recv(1024)
+                    if not data:
+                        break
+                    print(data.decode("utf8"))
+
+        def worker(sock):
+            while True:
+                conn, addr = sock.accept()
+                print("pid", os.getpid())
+                th = threading.Thread(target=process_request, args=(conn, addr))
+                th.start()
+
+
+
     # several_requests_by_processes_and_threads_server()
 
 week5()
