@@ -2322,5 +2322,30 @@ def week5():
             except socket.error as ex:
                 print("send data error:", ex)
 
-    socket_with_timeout_client()
+    # socket_with_timeout_client()
+
+    def several_requests_by_threads():
+        # обработка нескольких соединений одновременно с помощью потоков
+        import socket
+        import threading
+
+        def process_request(conn, addr):
+            print("connected client:", addr)
+            with conn:
+                while True:
+                    data = conn.recv(1024)
+                    if not data:
+                        break
+                    print(data.decode("utf8"))
+
+        with socket.socket() as sock:
+            sock.bind(("", 10001))
+            sock.listen()
+            while True:
+                conn, addr = sock.accept()
+                th = threading.Thread(target=process_request, args=(conn, addr))
+                th.start()
+
+    several_requests_by_threads()
+
 week5()
