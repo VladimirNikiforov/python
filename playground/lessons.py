@@ -2364,4 +2364,23 @@ def week5():
                             break
                         print(data.decode("utf8"))
 
+    def several_requests_by_processes_and_threads_server():
+        import socket
+        import multiprocess
+
+        with socket.socket() as sock:
+            sock.bind(("", 10001))
+            sock.listen()
+
+            workers_count = 3
+            workers_list = [multiprocess.Process(target=worker, args=(sock,))
+                            for _ in range(workers_count)]
+
+            for w in workers_list:
+                w.start()
+
+            for w in workers_list:
+                w.join()
+    # several_requests_by_processes_and_threads_server()
+
 week5()
