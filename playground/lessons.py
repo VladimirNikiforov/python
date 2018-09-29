@@ -2427,7 +2427,20 @@ def week5():
             conn2.fileno(): conn2
         }
 
+    def infinity_cycle_epoll():
+        # цикл обработки событий в epoll
+        while True:
+            events = epoll.poll(1)
+            for fileno, event in events:
+                if event & select.EPOLLIN:
+                    data = conn_map[fileno].recv(1024)
+                    print(data.decode("utf8"))
+                elif event & select.EPOLLOUT:
+                    conn_map[fileno].send("ping".encode("utf8"))
 
-
+        # создание соединения к серверу и передача данных
+        import socket
+        sock = socket.create_connection(("127.0.0.1", 10001))
+        sock.sendall(b"client2")
 
 week5()
