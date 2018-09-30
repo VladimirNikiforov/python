@@ -2530,6 +2530,19 @@ def week5():
         stop grep
     """
 
+    """ # Pass exception to corutine:
+    
+        >> g = grep("python")
+        >> next(g) # g.send(None)
+        start grep
+        >> g.send("python is the best!")
+        >> g.throw(RuntimeError, "something wrong")
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        RuntimeError: something wrong
+    """
+
+
 
 
 week5()
