@@ -2465,6 +2465,48 @@ def week5():
         for it in counter:
             print(it)
 
+        # debug run = python -m pdb lessons.py
+        # iterator - first single iter, next only __next__
 
+    def generators():
+        def MyRangeGenerator(top):
+            current = 0
+            while current < top:
+                yield current
+                current += 1
+
+        counter = MyRangeGenerator(3)
+        print(counter)
+        for it in counter:
+            print(it)
+
+    # generators()
+    # debug run = python -m pdb lessons.py
+    # Итератор хранит значения для следующей итерации в self
+    # Генератор использует локальные переменные
+
+    def corutines():
+        # сопрограммы
+        def grep(pattern):
+            print("start grep")
+            while True:
+                line = yield
+                if pattern in line:
+                    print(line)
+
+        """
+        >>g = grep("python")
+        >>next(g) # g.send(None)
+        start grep
+        >>g.send("golang is better?")
+        >>g.send("python is simple!")
+        python is simple
+        
+        генераторы производят значения
+        Генератор содержит инструкцию yield выражение
+        
+        сопрограммы потребляют значения
+        Сопрограмма содержит инструкцию yield и ожидает пока кто-то отправит в нее значение при помощи метода send
+        """
 
 week5()
