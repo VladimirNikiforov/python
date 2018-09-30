@@ -2543,6 +2543,7 @@ def week5():
     """
 
     def coroutines_pep380():
+        # Сопрограммы, yield from PEP 0380
         def grep(pattern):
             print("start grep")
             while True:
@@ -2552,15 +2553,16 @@ def week5():
 
         def grep_python_coroutine():
             g = grep("python")
-            next(g)
-            g.send("python is the best!")
-            g.close()
+            yield from g
 
         """
         >> g = grep_python_coroutine() # is g coroutine?
-        start grep
-        python is the best!
         >> g
+        <generator object grep_python_coroutine at ...>
+        >> g.send(None)
+        start grep
+        >> g.send("python wow!")
+        python wow!
         
         """
 
