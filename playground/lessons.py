@@ -2485,7 +2485,7 @@ def week5():
     # Итератор хранит значения для следующей итерации в self
     # Генератор использует локальные переменные
 
-    def corutines():
+    def coroutines():
         # сопрограммы
         def grep(pattern):
             print("start grep")
@@ -2509,7 +2509,7 @@ def week5():
         Сопрограмма содержит инструкцию yield и ожидает пока кто-то отправит в нее значение при помощи метода send
         """
 
-    def corutines_exit():
+    def coroutines_exit():
         def grep(pattern):
             print("start grep")
             try:
@@ -2530,7 +2530,7 @@ def week5():
         stop grep
     """
 
-    """ # Pass exception to corutine:
+    """ # Pass exception to coroutine:
     
         >> g = grep("python")
         >> next(g) # g.send(None)
@@ -2542,7 +2542,27 @@ def week5():
         RuntimeError: something wrong
     """
 
+    def coroutines_pep380():
+        def grep(pattern):
+            print("start grep")
+            while True:
+                line = yield
+                if pattern in line:
+                    print(line)
 
+        def grep_python_coroutine():
+            g = grep("python")
+            next(g)
+            g.send("python is the best!")
+            g.close()
+
+        """
+        >> g = grep_python_coroutine() # is g coroutine?
+        start grep
+        python is the best!
+        >> g
+        
+        """
 
 
 week5()
