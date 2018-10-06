@@ -2618,5 +2618,27 @@ def week5():
         loop.run_until_complete(hello_world())
         loop.close()
 
+    def tcp_server_asyncio():
+        import asyncio
+
+        @asyncio.coroutine
+        def handle_echo(reader, writer):
+            data = yield from reader.read(1024)
+            message = data.decode()
+            addr = writer.get_extra_info("peername")
+            print("received %r from %r" % (message, addr))
+            writer.close()
+
+        loop = asyncio.get_event_loop()
+        coro = asyncio.start_server(handle_echo, "127.0.0.1", 10001, loop=loop)
+        server = loop.run_until_complete(coro)
+        try:
+            loop.run_forever()
+        except KeyboardInterrupt:
+            pass
+
+        server.close()
+        loop.run_until_complete(server.wait_closed())
+        loop.close()
 
 week5()
