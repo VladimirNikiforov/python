@@ -2607,9 +2607,7 @@ def week5():
         # asyncio, async def / await; PEP 492 Python3.5
         import asyncio
 
-        asyncio
-
-        def hello_world():
+        async def hello_world():
             while True:
                 print("Hello World!")
                 await asyncio.sleep(1.0)
@@ -2672,5 +2670,22 @@ def week5():
         loop.run_until_complete(tcp_echo_client(message, loop))
         loop.close()
 
+    def asyncio_future():
+        # asyncio.Future, analog of concurrent.futures.Future
+
+        import asyncio
+
+        async def slow_operation(future):
+            await asyncio.sleep(1)
+            future.set_result("Future is done!")
+
+        loop = asyncio.get_event_loop()
+        future = asyncio.Future()
+        asyncio.ensure_future(slow_operation(future))
+
+        loop.run_until_complete(future)
+        print(future.result())
+        # Future is done!
+        loop.close()
 
 week5()
