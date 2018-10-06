@@ -2641,4 +2641,36 @@ def week5():
         loop.run_until_complete(server.wait_closed())
         loop.close()
 
+    """
+    (venv) >>>python asyncio_tcp_server.py
+    received 'ping2' from ('127.0.0.1', 64248)
+    received 'ping1' from ('127.0.0.1', 64230)
+    
+    >>> import socket
+    >>> sock = socket.create_connection(("127.0.0.1", 10001))
+    >>> sock.send(b"ping1")
+    5
+    
+    >>> import socket
+    >>> sock = socket.create_connection(("127.0.0.1", 10001))
+    >>> sock.send(b"ping2")
+    5
+    """
+
+    def asyncio_tcp_client():
+        import asyncio
+
+        async def tcp_echo_client(message, loop):
+            reader, writer = await asyncio.open_connection("127.0.0.1", 10001, loop=loop)
+
+            print("send: %r" % message)
+            writer.write(message.encode())
+            writer.close()
+
+        loop = asyncio.get_event_loop()
+        message = "Hello World!"
+        loop.run_until_complete(tcp_echo_client(message, loop))
+        loop.close()
+
+
 week5()
