@@ -2742,5 +2742,19 @@ def week5():
         loop.run_until_complete(load_url("https://google.com", loop=loop))
         loop.close()
 
+    """
+    Документация
+    Модуль select
+    https://docs.python.org/3.6/library/select.html
+    
+    Делегирование вызова генератора pep-0380
+    https://www.python.org/dev/peps/pep-0380/
+    
+    Asyncio
+    https://docs.python.org/3.6/library/asyncio.html
+    
+    Примеры для asyncio
+    https://habrahabr.ru/post/217143/
+    """
 
 week5()
