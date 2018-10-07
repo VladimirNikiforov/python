@@ -2707,10 +2707,12 @@ def week5():
         loop.run_until_complete(asyncio.wait(task_list))
         """
         loop.run_until_complete(loop.create_task(sleep_task(3)))
+        # or 
         loop.run_until_complete(asyncio.gather(
             sleep_task(10),
             sleep_task(20),
         ))
         """
+        loop.close()
 
 week5()
