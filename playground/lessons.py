@@ -2716,13 +2716,31 @@ def week5():
         loop.close()
 
         """
-        из объектов типа asyncio.Future можно создавать цепочки и 
+        * из объектов типа asyncio.Future можно создавать цепочки и 
         дожидаться их выполнения в asyncio event loop
-        объект типа asyncio.Task хранит в себе связанную корутину и 
+        
+        * объект типа asyncio.Task хранит в себе связанную корутину и 
         содержит статус ее выполнения
         """
 
+    def asyncio_run_in_executor():
+        # loop.run_in_executor, run in separate thread
 
+        import asyncio
+        from urllib.request import urlopen
+
+        # a synchronous function
+        def sync_get_url(url):
+            return urlopen(url).read()
+
+        async def load_url(url, loop=None):
+            future = loop.run_in_executor(None, sync_get_url, url)
+            response = await future
+            print(len(response))
+
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(load_url("https://google.com", loop=loop))
+        loop.close()
 
 
 week5()
